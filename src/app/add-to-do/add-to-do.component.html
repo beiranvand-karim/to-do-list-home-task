@@ -1,0 +1,18 @@
+
+
+
+<div class="container" [style.display]="uiStateService.addForm$ | async">
+
+  <form action="" [formGroup]="form" (ngSubmit)="formSubmit()">
+
+
+    <input type="text" formControlName="title">
+
+    <button type="submit">add to-do</button>
+
+  </form>
+
+
+
+</div>
+

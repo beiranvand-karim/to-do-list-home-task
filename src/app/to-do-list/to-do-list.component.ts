@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ToDoService} from '../services/to-do.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ToDo} from '../classes/to-do';
+import {UiStateService} from '../services/ui-state.service';
 
 @Component({
   selector: 'app-to-do-list',
@@ -12,41 +11,26 @@ export class ToDoListComponent implements OnInit {
 
 
 
-  form: FormGroup;
-
-  title = new FormControl('', [Validators.minLength(3)]);
-
-
-
   constructor(
     public toDoService: ToDoService,
-    public formBuilder: FormBuilder,
+    public uiStateService: UiStateService,
   ) {
 
-    this.form = this.formBuilder.group({
-      title: this.title
-    });
+
   }
 
   ngOnInit() {
   }
 
 
-  formSubmit() {
-
-
-    const todo = new ToDo();
-
-    todo.title = this.form.controls.title.value;
-
-
-    this.toDoService.addToDo(todo);
-
-  }
-
-
   delete(id: number) {
     this.toDoService.deleteToDo(id);
+  }
+
+  openAddToDoForm() {
+
+    this.uiStateService.showAddForm();
+
   }
 
 }
