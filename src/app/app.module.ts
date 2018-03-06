@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import {ToDoService} from './services/to-do.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [
+    ToDoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

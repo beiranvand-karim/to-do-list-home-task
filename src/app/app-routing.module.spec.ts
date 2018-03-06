@@ -24,4 +24,13 @@ describe('routes', () => {
 
   });
 
+
+  it('should contain a route for /', () => {
+
+    expect(routes).toContain(  {
+      path: 'log-in', component: LogInComponent
+    });
+
+  });
+
 });

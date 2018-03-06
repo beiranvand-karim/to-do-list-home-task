@@ -5,6 +5,9 @@ import {ToDoListComponent} from './to-do-list/to-do-list.component';
 
 export const routes: Routes = [
   {
+    path: '', redirectTo: 'log-in', pathMatch: 'full'
+  },
+  {
     path: 'log-in', component: LogInComponent
   },
   {
