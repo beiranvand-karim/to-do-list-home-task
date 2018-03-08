@@ -1,39 +1,52 @@
 
 
 <app-add-to-do></app-add-to-do>
+<app-delete-to-do (deleteToDo)="deleteResult($event)"></app-delete-to-do>
+
+<div class="page-container">
 
 
-<div>
-
-  <button (click)="openAddToDoForm()">open add-to-do form</button>
-
-</div>
-
-
-
-
-<div>
-
-  <button (click)="logout()">logout</button>
-
-</div>
+  <div class="add-logout">
 
 
 
-<div>
+    <div>
+
+      <button (click)="logout()">logout</button>
+
+    </div>
 
 
-  <u>
+    <div>
+
+      <button (click)="openAddToDoForm()">open add-to-do form</button>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <ul>
 
     <ng-template ngFor let-todo [ngForOf]="toDoService.toDoArray$ | async">
 
 
       <li>
 
-        {{todo.title}}
 
+        <div>
+          <span>{{todo.title}}</span>
+        </div>
 
-        <button (click)="delete(todo.id)">delete todo</button>
+        <div>
+
+          <button (click)="delete(todo.id)">delete todo</button>
+
+        </div>
+
 
       </li>
 
@@ -41,7 +54,7 @@
 
     </ng-template>
 
-  </u>
+  </ul>
 
 
 </div>

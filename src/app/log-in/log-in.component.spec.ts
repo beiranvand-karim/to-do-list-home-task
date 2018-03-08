@@ -60,7 +60,7 @@ describe('LogInComponent', () => {
 
     expect(spy).toHaveBeenCalledWith(['/to-do-list']);
 
-    expect(component).toBeTruthy();
+
   });
 
 

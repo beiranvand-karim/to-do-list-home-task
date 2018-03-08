@@ -1,0 +1,79 @@
+
+
+
+
+
+div.page-container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  flex-direction: column;
+
+  //background-color: #e1e1e1;
+
+
+  > div.add-logout {
+
+
+
+    padding: 50px;
+
+    background-color: #eee;
+
+    width: 300px;
+
+    display: flex;
+    flex-direction: row;
+
+
+    > div {
+      width: 50%;
+    }
+
+
+
+
+
+  }
+
+
+
+  > ul {
+
+
+    list-style: none;
+    padding: 0;
+
+
+    > li {
+
+      padding: 20px;
+      width: 330px;
+      background-color: #eee;
+      margin-bottom: 15px;
+      display: flex;
+
+      &:last-child {
+        margin-bottom: 0;
+
+      }
+
+
+      > div {
+        width: 50%;
+        display: inline-block;
+        justify-content: center;
+
+      }
+
+
+    }
+
+  }
+
+
+
+
+}

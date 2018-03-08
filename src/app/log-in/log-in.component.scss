@@ -1,0 +1,54 @@
+
+
+
+
+
+
+div.container {
+
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  opacity: 0.5;
+  padding-top: 50px;
+
+
+
+  > form {
+
+    background-color: #eee;
+    padding: 50px;
+
+
+
+    > input {
+      height: 30px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+    }
+
+
+    > button {
+
+      color: #fff;
+      height: 30px;
+      line-height: 1;
+      border-radius: 2px;
+      padding: 6px 12px;
+      cursor: pointer;
+      border: 1px solid #00ac55;
+      background-color: #00c562;
+
+    }
+
+  }
+
+
+}

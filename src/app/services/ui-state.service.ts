@@ -5,11 +5,26 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 export class UiStateService {
 
 
-  private addFormSubject = new BehaviorSubject<string>('none');
+  public addFormSubject = new BehaviorSubject<string>('none');
 
   addForm$ = this.addFormSubject.asObservable();
 
-  constructor() { }
+
+  public deleteFormSubject = new BehaviorSubject<string>('none');
+
+  deleteFormForm$ = this.deleteFormSubject.asObservable();
+
+  get _deleteFormSubject() {
+
+    return this.deleteFormSubject.getValue();
+
+  }
+
+  get _addFormSubject() {
+
+    return this.addFormSubject.getValue();
+
+  }
 
 
   showAddForm() {
@@ -21,5 +36,17 @@ export class UiStateService {
     this.addFormSubject.next('none');
 
   }
+
+
+  showDeleteForm() {
+
+    this.deleteFormSubject.next('flex');
+  }
+
+  hideDeleteForm() {
+    this.deleteFormSubject.next('none');
+
+  }
+
 
 }

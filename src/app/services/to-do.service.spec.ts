@@ -31,7 +31,6 @@ describe('ToDoService', () => {
     const todo = new ToDo();
 
     todo.title = 'test';
-    todo.id = 0;
 
     service.addToDo(todo);
 
@@ -42,25 +41,24 @@ describe('ToDoService', () => {
   }));
 
 
-  // it('should delete a todo by deleteToDo()', inject([ToDoService], (service: ToDoService) => {
-  //
-  //   const todo = new ToDo();
-  //
-  //   todo.title = 'test';
-  //   todo.id = 0;
-  //
-  //
-  //   service.addToDo(todo);
-  //   service.deleteToDo(0);
-  //
-  //
-  //   service.toDoArray$.subscribe((_toDo: ToDo[]) => {
-  //
-  //
-  //     expect(_toDo.length).toBe(0);
-  //   });
-  //
-  // }));
+  it('should delete a todo by deleteToDo()', inject([ToDoService], (service: ToDoService) => {
+
+    const todo = new ToDo();
+
+    todo.title = 'test';
+
+
+    service.addToDo(todo);
+    service.deleteToDo(1);
+
+
+    service.toDoArray$.subscribe((_toDo: ToDo[]) => {
+
+
+      expect(_toDo.length).toBe(0);
+    });
+
+  }));
 
 
 

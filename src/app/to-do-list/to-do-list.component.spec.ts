@@ -7,6 +7,8 @@ import {AddToDoComponent} from '../add-to-do/add-to-do.component';
 import {UiStateService} from '../services/ui-state.service';
 import {Router} from '@angular/router';
 import {RouterStub} from '../log-in/log-in.component.spec';
+import {DeleteToDoComponent} from '../delete-to-do/delete-to-do.component';
+import {ToDo} from '../classes/to-do';
 
 describe('ToDoListComponent', () => {
   let component: ToDoListComponent;
@@ -19,7 +21,8 @@ describe('ToDoListComponent', () => {
       ],
       declarations: [
         ToDoListComponent,
-        AddToDoComponent
+        AddToDoComponent,
+        DeleteToDoComponent
       ],
       providers: [
         ToDoService,
@@ -56,4 +59,86 @@ describe('ToDoListComponent', () => {
 
 
   });
+
+
+
+  it('should show delete todo dialog on delete()', () => {
+
+    const _uiStateService = TestBed.get(UiStateService);
+
+    component.delete(1);
+
+    expect(component.id).toBe(1);
+    expect(_uiStateService._deleteFormSubject).toBe('flex');
+
+
+
+  });
+
+
+
+  it('should show add todo dialog on openAddToDoForm()', () => {
+
+    const _uiStateService = TestBed.get(UiStateService);
+
+
+    component.openAddToDoForm();
+
+    expect(_uiStateService._addFormSubject).toBe('flex');
+
+  });
+
+
+
+  it('should test deleteResult()', () => {
+
+    const _uiStateService = TestBed.get(UiStateService);
+    const toDoService = TestBed.get(ToDoService);
+
+
+    const todo = new ToDo();
+
+    todo.title = 'test';
+
+    toDoService.addToDo(todo);
+
+    toDoService.toDoArray$.subscribe((data) => {
+
+      expect(data[0].id).toBe(1);
+      expect(data[0].title).toContain('test');
+
+    });
+
+    component.id = 1;
+
+
+    component.deleteResult(true);
+
+
+    toDoService.toDoArray$.subscribe((data) => {
+
+      expect(data.length).toBe(0);
+
+    });
+
+
+
+    expect(_uiStateService._deleteFormSubject).toBe('none');
+
+
+    toDoService.addToDo(todo);
+
+    component.deleteResult(false);
+
+
+    toDoService.toDoArray$.subscribe((data) => {
+
+      expect(data.length).toBe(1);
+
+    });
+
+
+
+  });
+
 });

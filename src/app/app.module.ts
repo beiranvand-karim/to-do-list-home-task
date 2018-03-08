@@ -9,13 +9,15 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import {ToDoService} from './services/to-do.service';
 import { AddToDoComponent } from './add-to-do/add-to-do.component';
 import {UiStateService} from './services/ui-state.service';
+import { DeleteToDoComponent } from './delete-to-do/delete-to-do.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     ToDoListComponent,
-    AddToDoComponent
+    AddToDoComponent,
+    DeleteToDoComponent
   ],
   imports: [
     BrowserModule,

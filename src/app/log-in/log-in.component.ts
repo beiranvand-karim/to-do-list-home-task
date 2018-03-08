@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 
@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.scss']
 })
-export class LogInComponent implements OnInit {
+export class LogInComponent {
 
 
 
@@ -28,12 +28,9 @@ export class LogInComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-  }
-
   formSubmit() {
 
-    if (this.form.valid) {
+    if (this.form.controls.username.value === 'test' && this.form.controls.password.value === 'test') {
       this.router.navigate(['/to-do-list']);
     }
 

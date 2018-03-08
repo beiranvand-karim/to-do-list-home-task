@@ -3,12 +3,19 @@
 
 
 
-<form action=""  [formGroup]="form" (ngSubmit)="formSubmit()">
+<div class="container">
 
 
-  <input type="text" formControlName="username">
-  <input type="text" formControlName="password">
+  <form action=""  [formGroup]="form" (ngSubmit)="formSubmit()">
 
-  <button type="submit">log in</button>
 
-</form>
+    <input type="text" formControlName="username">
+    <input type="text" formControlName="password">
+
+    <button type="submit">log in</button>
+
+  </form>
+
+
+</div>
+

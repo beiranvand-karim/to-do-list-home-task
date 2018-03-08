@@ -25,9 +25,7 @@ export class ToDoService {
 
     const index = this.toDoArraySubject.getValue().findIndex((toDo: ToDo) => toDo.id === id);
 
-    if ( index > -1) {
-      this.toDoArraySubject.getValue().splice(index, 1);
-    }
+    this.toDoArraySubject.getValue().splice(index, 1);
 
   }
 

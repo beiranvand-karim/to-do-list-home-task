@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {ToDoService} from '../services/to-do.service';
 import {UiStateService} from '../services/ui-state.service';
 import {Router} from '@angular/router';
@@ -8,9 +8,10 @@ import {Router} from '@angular/router';
   templateUrl: './to-do-list.component.html',
   styleUrls: ['./to-do-list.component.scss']
 })
-export class ToDoListComponent implements OnInit {
+export class ToDoListComponent {
 
 
+  public id: number;
 
   constructor(
     public toDoService: ToDoService,
@@ -19,9 +20,6 @@ export class ToDoListComponent implements OnInit {
   ) {
 
 
-  }
-
-  ngOnInit() {
   }
 
 
@@ -34,12 +32,26 @@ export class ToDoListComponent implements OnInit {
 
 
   delete(id: number) {
-    this.toDoService.deleteToDo(id);
+
+    this.id = id;
+
+    this.uiStateService.showDeleteForm();
+
   }
 
   openAddToDoForm() {
 
     this.uiStateService.showAddForm();
+
+  }
+
+  deleteResult(event: boolean) {
+
+    this.uiStateService.hideDeleteForm();
+
+    if (event === true) {
+      this.toDoService.deleteToDo(this.id);
+    }
 
   }
 
